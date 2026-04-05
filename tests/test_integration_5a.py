@@ -4,7 +4,7 @@ import pytest
 import sys
 import os
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "starter"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from evaluation_pipeline import (load_and_prepare, build_preprocessor,
                                   define_models, evaluate_models)
@@ -12,7 +12,7 @@ from evaluation_pipeline import (load_and_prepare, build_preprocessor,
 
 def test_data_loaded():
     result = load_and_prepare(
-        os.path.join(os.path.dirname(__file__), "..", "starter", "data", "telecom_churn.csv")
+        os.path.join(os.path.dirname(__file__), "..", "data", "telecom_churn.csv")
     )
     assert result is not None, "load_and_prepare returned None"
     X, y = result
@@ -36,7 +36,7 @@ def test_models_defined():
 
 def test_evaluation_runs():
     result = load_and_prepare(
-        os.path.join(os.path.dirname(__file__), "..", "starter", "data", "telecom_churn.csv")
+        os.path.join(os.path.dirname(__file__), "..", "data", "telecom_churn.csv")
     )
     assert result is not None
     X, y = result
